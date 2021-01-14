@@ -1,0 +1,6 @@
+.top_banner{
+	background:url(../img/header.jpg) no-repeat left top;
+	height:175px;
+	padding:75px 75px 0 75px;
+	border:grey 1px;
+}

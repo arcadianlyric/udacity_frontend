@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+.special_font{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.emphasis{
+    color: red;
+    font-size: 20px;
+}
+
+a{
+    color: rgb(75, 160, 200);
+}
