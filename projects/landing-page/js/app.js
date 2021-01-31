@@ -13,15 +13,12 @@
  * 
 */
 
-const { send } = require("process")
-
 /**
  * Define Global Variables
  * 
 */
 const sections = document.querySelectorAll("section")
-const navbarList = document.getElementById("#navbar__list")
-
+const newFrag = document.createDocumentFragment()
 
 /**
  * End Global Variables
@@ -29,7 +26,7 @@ const navbarList = document.getElementById("#navbar__list")
  * 
 */
 function createHtmlItem(name, id){
-    const HtmlItem = `<a class="menu__link" data-id="${id}">${name}<\a>`;
+    const HtmlItem = `<a class="menu__link" data-id="${id}">${name}</a>`;
     return HtmlItem;
 }
 
@@ -42,7 +39,7 @@ function createHtmlItem(name, id){
 
 // build the nav
 function buildNav(){
-    const newFrag = document.createDocumentFragment()
+    
     for (let i=0; i<sections.length; i++){
         const newItem = document.createElement('li')
         const name = sections[i].getAttribute('data-nav')
@@ -50,31 +47,30 @@ function buildNav(){
         newItem.innerHTML = createHtmlItem(name, id)
         newFrag.appendChild(newItem)
     }
+    const navbarList = document.getElementById("navbar__list")
     navbarList.appendChild(newFrag)
 }
 
 // Add class 'active' to section when near top of viewport
 function makeActive(){
     for (let i=0; i<sections.length; i++){
-        const view = section[i].getBoundingClientRect();
-        if (view.top >= 100 && view.bottom <=100){
-            section[i].classList.add("active")
+        const view = sections[i].getBoundingClientRect()
+        if (view.top >= 0 && view.bottom >= 100){
+            sections[i].classList.add("your-active-class")
         }
         else{
-            section[i].classList.remove("active")
+            sections[i].classList.remove("your-active-class")
         }
     }
 }
 
-
-
 // Scroll to anchor ID using scrollTO event
-function scrollToEvent(){
-    const toScroll = document.querySelectorAll("a")
-    for (let i = 0; i<= sections.length; i++){
-        const pos = section[i].getBoundingClientRect().top + window.pageYOffset
-        toScroll[i].addEventListener('scroll', function(){
-            window.scrollTo({pos, behavior: 'smooth'})
+function scrollTo(event){
+    if(event.target.nodeName === 'A'){
+        const id = event.target.getAttribute('data-id')
+        const section = document.getElementById(id)
+        section.scrollIntoView({
+            behavior: "smooth"
         })
     }
 }
@@ -87,9 +83,9 @@ function scrollToEvent(){
 document.addEventListener('scroll', function(){
     makeActive()
 })
-
-navBarList.addEventListener('click', function(){
-    scrollToEvent()
+const navBarList = document.getElementById('navbar__list')
+navBarList.addEventListener('click', function(event){
+    scrollTo(event)
 })
 
 // Build menu
