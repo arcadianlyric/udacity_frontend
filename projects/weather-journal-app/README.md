@@ -9,5 +9,5 @@ This project allows to create an asynchronous web app that uses Web API and user
 ``` npm server.js```
 and visit 
 ``` http://localhost:3000/ ```
-3. input current user temperature feeling to compare with the actual temperature observed, output include date.
+3. input zip/city code (for example 524901), current user feeling of temperature to compare with the actual temperature observed, output include date.
 
