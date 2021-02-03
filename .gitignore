@@ -2,3 +2,6 @@
 node_modules/
 bower_components/
 examples/
+projects/weather-journal-app/node_modules
+projects/weather-journal-app/web_api
+projects/weather-journal-app/commentsOnlyJS
