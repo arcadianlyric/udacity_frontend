@@ -2,7 +2,9 @@
 const generate = document.getElementById('generate')
 // const fetch = require("node-fetch");
 const baseURL = 'http://api.openweathermap.org/data/2.5/weather?'
-const apiKey = '3afdae9526dcc9561a1b9c171a9dadb8';
+const dotenv = require('dotenv');
+dotenv.config();
+const apiKey = process.env.API_KEY
 let city = 524901
 
 // Create a new date instance dynamically with JS
