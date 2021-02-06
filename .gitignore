@@ -5,3 +5,4 @@ examples/
 projects/weather-journal-app/node_modules
 projects/weather-journal-app/web_api
 projects/weather-journal-app/commentsOnlyJS
+projects/weather-journal-app/website/.env
