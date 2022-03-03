@@ -1,0 +1,8 @@
+figure figcaption {
+    text-align: center;
+    color: rgb(75, 160, 200);
+    font-size: 20px;
+}
+figure img {
+    vertical-align: top;
+}
