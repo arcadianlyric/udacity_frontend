@@ -1,5 +1,7 @@
 @import "img.css";
 @import "font.css";
+@import "figure.css";
+@import "post.css";
 
 .container{
     display:grid;
@@ -29,7 +31,8 @@
 }
 
 .header{
-    grid-area: header;  
+    grid-area: header;
+    display: flex;  
 }
 
 .footer{
